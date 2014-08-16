@@ -13,6 +13,9 @@ gem 'jquery-rails', '~>3.0'
 gem 'turbolinks', '~>1.1'
 gem 'jbuilder', '~>1.0'
 
+# 認証機能追加
+gem 'devise', '~>3.2'
+
 group :development, :test do
   gem 'sqlite3', '~>1.3'
 end
@@ -21,6 +24,7 @@ group :test do
   gem 'selenium-webdriver', '~>2.35'
   gem 'rspec-rails', '~>2.13'
   gem 'capybara', '~>2.1'
+  gem 'factory_girl_rails', '~>4.2'
 end
 
 group :doc do

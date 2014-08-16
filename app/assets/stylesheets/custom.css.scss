@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+h1.title {
+  padding-bottom: 20px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -49,6 +53,17 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 10px;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  margin-top: 0px;
+}
+
+a.bold {
+  color: white !Important;
+}
+
 /* footer */
 
 footer {
@@ -64,4 +79,16 @@ footer {
   text-align: center;
 }
 
+/* login */
+.login {
+  margin-top: 20px;
+  padding: 10px 45px 30px;
+  border: 1px solid $grayMediumLight;
+  border-radius: 10px;        /* CSS3草案 */  
+  -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+  -moz-border-radius: 10px;   /* Firefox用 */  
+}
 
+input[type="checkbox"] {
+  margin-left: 0px !important;
+}
