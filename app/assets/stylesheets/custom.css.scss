@@ -1,0 +1,67 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 50px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* header */
+
+.navbar-brand {
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar-btn {
+  margin-left: 10px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $gray-light;
+  text-align: center;
+}
+
+/* home */
+.jumbotron {
+  text-align: center;
+}
+
+

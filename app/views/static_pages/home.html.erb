@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>ようこそ XAPP8 へ</h1>
+    <p>このアプリケーションは、Railsビギナーによるテスト用アプリケーションです。</p>
+
+    <%= link_to "アカウントを作成", '#', class: "btn btn-primary btn-lg bold" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Railsチュートリアル</h2>
+      <p>このアプリケーションは、本格的なプログラミング経験の無い主が、Michael Hartlの"Ruby on Rails チュートリアル"を一通りこなした後に作成しているものです。</p>
+      <p><%= button_to "チュートリアル", 'http://railstutorial.jp/?version=4.0#top', class: "btn btn-default" %></p>
+    </div>
+    <div class="col-md-4">
+      <h2>新しい村</h2>
+      <p>このアプリケーションの作成過程については、主のブログ"新しい村”にて公開しています。</p><p>　</p>
+      <p><%= button_to "新しい村", 'http://new-village.hatenablog.com', class: "btn btn-default" %></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Github</h2>
+      <p>このアプリケーションのソースコードについてはGithubで管理しています。</p><p>　</p>
+      <p><%= button_to "Github", 'https://github.com/Kzki/xapp8', class: "btn btn-default" %></p>
+    </div>
+  </div>
+</div>
