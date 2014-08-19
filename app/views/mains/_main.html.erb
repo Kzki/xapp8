@@ -1,5 +1,5 @@
 <div class="panel-heading">
-  <h4 class="panel-title"><%= link_to main.article.title, main.article.url %></h4>
+  <h4 class="panel-title"><%= link_to main.article.title, main.article.url, :target => "_blank" %></h4>
   <a href='<%= "#"+main.id.to_s %>' data-toggle="collapse" data-parent="#accordion" style="float">[詳細]</a>
   <%= link_to "既読にする", main_path(main.id), :method => "PATCH", :style => "float:right"%> 
 </div>
