@@ -21,7 +21,6 @@ class MainsController < ApplicationController
 
   # GET /mains/1/edit
   def edit
-    flash[:success] = "Profile updated"
   end
   
   # POST /mains
@@ -43,8 +42,10 @@ class MainsController < ApplicationController
   # PATCH/PUT /mains/1
   # PATCH/PUT /mains/1.json
   def update
-    flash[:notice] = "Post successfully created"
-    redirect_to root_path
+    main = Main.find(params[:id])
+    main.read_flg = 1
+    main.save
+    redirect_to mains_path
   end
 
   # DELETE /mains/1

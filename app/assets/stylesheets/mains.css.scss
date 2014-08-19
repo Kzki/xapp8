@@ -3,29 +3,33 @@
 $grayMediumLight: #eaeaea;
 
 /* universal */
+aside {
+  background-color: $grayMediumLight;
+  height: 100%;
+  padding-top: 5px;
+}
+
+/* bootstrap gridsystem */
 div.row {
   height: calc(100% - 26px);
   width: 100%;
   margin: 0px;
 }
 
-div.col-md-9 {
+div.col-md-10 {
   height: 100%;
+  padding-top: 5px;
   padding-left: 5px;
   padding-right: 20px;
   overflow: auto; 
 }
 
-aside {
-  background-color: $grayMediumLight;
-  height: 100%;
-}
-
+/* bootstrap Collapse */
 .panel-body {
-
+  border-top: 0px !important;
 }
 
 .panel-group .panel-heading {
-    border-top: 0px !important;
   border-bottom: 1px solid #dddddd;
 }
+
