@@ -1,0 +1,12 @@
+<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href='<%= "#"+main.id.to_s %>'>
+  <h4 class="panel-title">
+    <%= link_to main.article.title, main_path(main.id), :method => "PATCH" %>
+  </h4>
+</div>
+<div id='<%=main.id.to_s %>' class="panel-collapse collapse">
+  <div class="panel-body">
+    <%= main.id %>,<%= case main.read_flg when 0 then "未読" when 1 then "既読" end %>,<%= main.article.desc %>
+  </div>
+</div>
+
+

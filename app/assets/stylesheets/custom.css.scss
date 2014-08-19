@@ -8,10 +8,12 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   padding-top: 50px;
+  height: 100%;
 }
 
 section {
@@ -39,10 +41,10 @@ h1.title {
 
 .navbar-brand {
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 36px;
   color: white !important;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   &:hover {
     color: white;
     text-decoration: none;
@@ -64,10 +66,15 @@ a.bold {
   color: white !Important;
 }
 
+.last {
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
 /* footer */
 
 footer {
-  margin-top: 45px;
+//  margin-top: 0px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $gray-light;

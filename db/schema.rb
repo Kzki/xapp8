@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816081037) do
+ActiveRecord::Schema.define(version: 20140818084053) do
+
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "desc"
+    t.string   "subject"
+    t.string   "creator"
+    t.datetime "date"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mains", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "atcl_id"
+    t.integer  "read_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

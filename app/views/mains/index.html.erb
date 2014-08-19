@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#"><span class="badge pull-right"><%= @main.count %></span>未読</a></li>
+</ul>
+  </aside>
+  
+  <div class="col-md-9">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <%= render @main %>
+      </div>
+    </div>
+  </div>
+</div>
