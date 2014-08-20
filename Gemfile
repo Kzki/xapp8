@@ -16,6 +16,9 @@ gem 'jbuilder', '~>1.0'
 # 認証機能追加
 gem 'devise', '~>3.2'
 
+# 記事収集機能
+gem 'feedjira', '~> 1.3'
+
 group :development, :test do
   gem 'sqlite3', '~>1.3'
   gem 'faker',  '~>1.4'
