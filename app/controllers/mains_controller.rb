@@ -1,12 +1,13 @@
 class MainsController < ApplicationController
   #ログインしているかどうか確認
   before_filter :authenticate_user!
-  before_action :set_main, only: [:show, :edit, :update, :destroy]
+  before_action :set_main, only: [:edit, :update, :destroy]
 
   # GET /mains
   # GET /mains.json
   def index
-    @main = Main.where(:user_id => current_user.id, :read_flg => 0)
+    @main = Main.where(:user_id => current_user.id)
+    @site = Sbsc.where(:user_id => current_user.id)
   end
 
   # GET /mains/1
@@ -43,7 +44,7 @@ class MainsController < ApplicationController
   # PATCH/PUT /mains/1.json
   def update
     main = Main.find(params[:id])
-    main.read_flg = 1
+    main.read_flg = "t"
     main.save
     redirect_to mains_path
   end
@@ -57,16 +58,17 @@ class MainsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_main
-      @main = Main.find(params[:id])
+      @main = Main.where(:user_id => params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def main_params
-      params.require(:main).permit(:user_id, :page_id, :read_flg)
+      params.require(:main).permit(:user_id, :feed_id, :read_flg)
     end
   
 end

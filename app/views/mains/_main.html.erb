@@ -1,11 +1,12 @@
 <div class="panel-heading">
-  <h4 class="panel-title"><%= link_to main.article.title, main.article.url, :target => "_blank" %></h4>
+  <h4 class="panel-title"><%= link_to main.feed.title, main.feed.url, :target => "_blank" %></h4>
   <a href='<%= "#"+main.id.to_s %>' data-toggle="collapse" data-parent="#accordion" style="float">[詳細]</a>
   <%= link_to "既読にする", main_path(main.id), :method => "PATCH", :style => "float:right"%> 
 </div>
 <div id='<%=main.id.to_s %>' class="panel-collapse collapse">
   <div class="panel-body">
-    <%= main.article.desc %><br/>
-    <%= main.article.date %>
+    <%= main.feed.desc %><br/>
+    <%= main.feed.date %><br/>
+    <%= main.feed.site_id %>
   </div>
 </div>

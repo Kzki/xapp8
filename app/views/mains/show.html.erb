@@ -1,19 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <aside class="col-md-2">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#"><span class="badge pull-right"><%= @main.count %></span>未読</a></li>
 
-<p>
-  <strong>User:</strong>
-  <%= @main.user_id %>
-</p>
+    </ul>
+  </aside>
 
-<p>
-  <strong>Page:</strong>
-  <%= @main.atcl_id %>
-</p>
-
-<p>
-  <strong>Read flg:</strong>
-  <%= @main.read_flg %>
-</p>
-
-<%= link_to 'Edit', edit_main_path(@main) %> |
-<%= link_to 'Back', mains_path %>
+  <div class="col-md-10">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <%= render "mains/main" %>
+      </div>
+    </div>
+  </div>
+</div>
