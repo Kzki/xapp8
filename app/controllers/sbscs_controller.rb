@@ -21,7 +21,6 @@ class SbscsController < ApplicationController
     @sReg = Sbsc.new(main_params)
     @sReg.save
   end
-end
 
 
 private
