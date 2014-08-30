@@ -7,6 +7,8 @@ aside {
   background-color: $grayMediumLight;
   height: 100%;
   padding-top: 5px;
+  padding-left: 5px !Important;
+  padding-right: 5px !Important;
 }
 
 /* bootstrap gridsystem */
@@ -20,7 +22,7 @@ div.col-md-10 {
   height: 100%;
   padding-top: 5px;
   padding-left: 5px;
-  padding-right: 20px;
+  padding-right: 5px;
   overflow: auto; 
 }
 
@@ -33,3 +35,25 @@ div.col-md-10 {
   border-bottom: 1px solid #dddddd;
 }
 
+/* site list */
+$nav-mid-height: 70px;
+
+aside > div.nav-top {
+  height: calc(30% - 35px);
+  overflow: hidden;
+}
+
+aside > div.nav-middle {
+  height: 70px;
+  overflow: hidden;
+}
+
+aside > div.nav-bottom {
+  height: calc(70% - 35px);
+  overflow: hidden;
+}
+
+ul.slist {
+  height: calc(100% - 35px);
+  overflow: auto;
+}

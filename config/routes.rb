@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   resources :mains
+  resources :sbscs
+  resources :sites
 
   devise_for :users
   root 'static_pages#home'

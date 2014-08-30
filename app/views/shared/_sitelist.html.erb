@@ -1,0 +1,6 @@
+<h5>登録サイト一覧</h5>
+<ul class = "slist">
+  <% @sList.each do |f| %>
+  <li><%= link_to f.site.title, f.site.url %></li>
+  <% end %>
+</ul>

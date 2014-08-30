@@ -1,9 +1,8 @@
 <div class="row">
   <aside class="col-md-2">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#"><span class="badge pull-right"><%= @main.where(:read_flg=>"f").count %></span>未読</a></li>
-    </ul>
-    <%= render "site" %>
+    <div class="nav-top"><%= render 'shared/navmenu' %></div>
+    <div class="nav-middle"><%= render 'shared/addsite' %></div>
+    <div class="nav-bottom"><%= render 'shared/sitelist' %></div>
   </aside>
 
   <div class="col-md-10">

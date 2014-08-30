@@ -1,6 +1,7 @@
 namespace :db do
   desc "アプリに必要なサンプルデータを作成します"
   task sample: :environment do
+    # マスタ - ユーザデータ作成（固定１ユーザ、サンプル２ユーザ）
     User.create!(email: "sample@xapp8.com",
       password: "password",
       password_confirmation: "password")
@@ -12,7 +13,8 @@ namespace :db do
         password_confirmation: password)
     end
 
-    10.times do |n|
+    # マスタ - 収集サイト一覧
+    50.times do |n|
       title = Faker::Internet.domain_word
       url = Faker::Internet.url
       dttm = DateTime.new(rand(2013..2014), rand(1..12), rand(1..28), rand(0..23), rand(0..59), rand(0..59))
@@ -21,12 +23,13 @@ namespace :db do
         date: dttm)
     end    
 
-    100.times do |n|
+    # マスタ - 収集記事一覧
+    500.times do |n|
       title = Faker::Lorem.sentence
       url = Faker::Internet.url
       desc = Faker::Lorem.paragraph(5)
       dttm = DateTime.new(rand(2013..2014), rand(1..12), rand(1..28), rand(0..23), rand(0..59), rand(0..59))
-      site_id = rand(1..10)
+      site_id = rand(1..50)  # サイト数に応じて上限値を変更すること
       Feed.create!(title: title,
         url: url,
         desc: desc,
@@ -34,13 +37,15 @@ namespace :db do
         site_id: site_id)
     end
 
-    10.times do |n|
-      user_id = rand(1..3)
+    # トラン - ユーザ毎購読サイト一覧
+    50.times do |n|         # サイト数に応じてループ回数を変更すること
+      user_id = rand(1..3)  # ユーザ数に応じて上限値を変更すること
       site_id  = "#{n+1}".to_i  
       Sbsc.create!(user_id: user_id,
         site_id: site_id)
     end
 
+    # トラン - ユーザ毎フィード一覧
     User.find_each do |user|
       Sbsc.where(:user_id => user.id).find_each do |sbsc|
         Feed.where(:site_id => sbsc.id).find_each do |feed|
