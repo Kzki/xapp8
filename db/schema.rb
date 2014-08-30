@@ -38,13 +38,17 @@ ActiveRecord::Schema.define(version: 20140822083953) do
     t.datetime "updated_at"
   end
 
+  add_index "sbscs", ["user_id", "site_id"], name: "index_sbscs_on_user_id_and_site_id", unique: true
+
   create_table "sites", force: true do |t|
     t.string   "title"
-    t.string   "url"
-    t.datetime "date"
+    t.string   "siteurl"
+    t.string   "rssurl"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sites", ["rssurl"], name: "index_sites_on_rssurl", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

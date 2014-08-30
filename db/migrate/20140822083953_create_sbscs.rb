@@ -6,5 +6,7 @@ class CreateSbscs < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :sbscs, [:user_id, :site_id], unique: true
   end
 end

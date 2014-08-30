@@ -8,7 +8,7 @@ class MainsController < ApplicationController
   def index
     @main = Main.where(:user_id => current_user.id)  # フィード取得用
     @sList = Sbsc.where(:user_id => current_user.id) # Site List 購読中のサイト一覧
-    @sReg = Site.new  # Site Registry サイト登録用
+    @regSite = Site.new  # RegistrySite サイト登録用
   end
 
   # GET /mains/1

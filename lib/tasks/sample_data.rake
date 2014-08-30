@@ -19,8 +19,8 @@ namespace :db do
       url = Faker::Internet.url
       dttm = DateTime.new(rand(2013..2014), rand(1..12), rand(1..28), rand(0..23), rand(0..59), rand(0..59))
       Site.create!(title: title,
-        url: url,
-        date: dttm)
+        siteurl: url,
+        rssurl: url)
     end    
 
     # マスタ - 収集記事一覧
