@@ -1,3 +1,3 @@
 class Feed < ActiveRecord::Base
-  has_many :mains, dependent: :destroy
+  validates :url,  presence: true, uniqueness: { case_sensitive: false }
 end

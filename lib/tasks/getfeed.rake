@@ -1,19 +1,35 @@
-namespace :getfeed do
-  desc "登録されているページのフィードをDBに格納します" #=> 説明
+namespace :db do
+  desc "登録されているSitesのフィードを取得してfeedsに格納します"
+  task getfeed: :environment do
 
-  # $ rake getfeed:exec のように使う
-  # :environmentは超大事。ないとモデルにアクセスできない
+    Site.find_each do |site|
+      @fjr = Feedjira::Feed.fetch_and_parse site.rss_url
+      for num in 0..9 do
+        @feed = @fjr.entries[num.to_i]
+        unless @feed.nil? then
+          @regFed = Feed.new
+          @regFed.title = @feed.title
+          @regFed.url = @feed.url
+          @regFed.publish_at = @feed.published
+          @regFed.site_id = site.id
+          unless @feed.summary.nil? then
+            @regFed.summary = @feed.summary
+          end
+          @regFed.save
 
-  task :exec => :environment do 
-    urls = %w[http://new-village.hatenablog.com/rss]
-    feeds = Feedjira::Feed.fetch_and_parse urls
-    feed = feeds['http://new-village.hatenablog.com/rss']
-    puts "ブログTTL："+feed.title
-    puts "ブログURL："+feed.url
-    feed.entries
-    entry = feed.entries.first
-    puts "記事　TTL："+entry.title
-    puts "記事　URL："+entry.url 
+        end  # unless @feed.nil? end
+      end # for end
+          
+          Sbsc.where(:site_id => site.id).find_each do |sbsc|
+            Feed.where(:site_id => site.id).find_each do |feed|
+              Main.create(user_id: sbsc.user_id,
+                feed_id: feed.id,
+                read_flg: "f"
+                )
+            end
+          end          
+    end # site.each end
+
+        
   end
-
 end

@@ -7,5 +7,7 @@ class CreateMains < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :mains, :user_id
   end
 end

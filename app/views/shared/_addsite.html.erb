@@ -1,5 +1,5 @@
 <h5>新規サイト登録</h5>
 <%= form_for(@regSite) do |f|%>
-<%= f.url_field :rssurl, placeholder: "URLを入力してください" %>
+<%= f.url_field :rss_url, placeholder: "URLを入力してください" %>
 <%= f.submit "Post", class: "btn btn-xs btn-primary" %>
 <% end %>

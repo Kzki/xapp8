@@ -16,12 +16,15 @@ ActiveRecord::Schema.define(version: 20140822083953) do
   create_table "feeds", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.text     "desc"
-    t.datetime "date"
+    t.text     "summary"
+    t.datetime "publish_at"
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "feeds", ["site_id"], name: "index_feeds_on_site_id"
+  add_index "feeds", ["url"], name: "index_feeds_on_url", unique: true
 
   create_table "mains", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +33,8 @@ ActiveRecord::Schema.define(version: 20140822083953) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "mains", ["user_id"], name: "index_mains_on_user_id"
 
   create_table "sbscs", force: true do |t|
     t.integer  "user_id"
@@ -42,13 +47,14 @@ ActiveRecord::Schema.define(version: 20140822083953) do
 
   create_table "sites", force: true do |t|
     t.string   "title"
-    t.string   "siteurl"
-    t.string   "rssurl"
+    t.string   "site_url"
+    t.string   "rss_url"
+    t.datetime "last_publish_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sites", ["rssurl"], name: "index_sites_on_rssurl", unique: true
+  add_index "sites", ["rss_url"], name: "index_sites_on_rss_url", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
