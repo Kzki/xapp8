@@ -9,6 +9,7 @@ class MainsController < ApplicationController
     @main = Main.where(:user_id => current_user.id)  # フィード取得用
     @sList = Sbsc.where(:user_id => current_user.id) # Site List 購読中のサイト一覧
     @regSite = Site.new  # RegistrySite サイト登録用
+    puts @regSite.inspect
   end
 
   # GET /mains/1
