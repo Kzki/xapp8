@@ -6,10 +6,10 @@ class MainsController < ApplicationController
   # GET /mains
   # GET /mains.json
   def index
-    @main = Main.where(:user_id => current_user.id)  # フィード取得用
+    @main = Main.own(current_user.id).unread  # 未読フィード取得
+    @cnt  = @main.count  # 未読フィード件数取得  
     @sList = Sbsc.where(:user_id => current_user.id) # Site List 購読中のサイト一覧
     @regSite = Site.new  # RegistrySite サイト登録用
-    puts @regSite.inspect
   end
 
   # GET /mains/1
